@@ -6,12 +6,12 @@ import Card from '../components/Card'
 
 const News = () => {
   const [inputVal, setinputVal] = useState('');
-  const [city, setcity] = useState([]);
+  const [city, setcity] = useState();
   // let apiKeyy =localStorage.getItem("apiKey");
   const { user } = useSelector((state) => state.auth);
   let unitType ="metric";
   let lang ="tr";
-  let url =` https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${user}&units=${unitType}&lang=${lang};`
+  let url =` https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${user.apıkey}&units=${unitType}&lang=${lang};`
 
 
   const handleSubmit = (e) => {
@@ -37,33 +37,33 @@ const News = () => {
 
 
     <div>
-      <form onSubmit={handleSubmit}>
-          <section class="top-banner">
-    <div class="container">
+      
+          <section className="top-banner">
+    <div className="container">
       <center>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAtYA6kLKN8Tmwp2u1rV_FOJUKstGzskRpwGJJhl56g3Mv35dUzK8sNisz39MnsGJYX24&usqp=CAU" alt="Bank logo" class="nav__logo"
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAtYA6kLKN8Tmwp2u1rV_FOJUKstGzskRpwGJJhl56g3Mv35dUzK8sNisz39MnsGJYX24&usqp=CAU" alt="Bank logo" className="nav__logo"
           id="logo" />
-          <h1 class="heading">
+          <h1 className="heading">
             Weather App</h1>
       </center>
-      <form>
-        <input type="text" placeholder="Search for a city" autofocus 
+      <form onSubmit={handleSubmit}>
+        <input type="text" placeholder="Search for a city" autoFocus 
         onChange={(e) => setinputVal(e.target.value)}
         />
         <button type="submit">SUBMIT</button>
-        <span class="msg"></span>
+        <span className="msg"></span>
       </form>
     </div>
   </section>
-  <section class="ajax-section">
-    <div class="container">
-      <ul class="cities">
+  <section className="ajax-section">
+    <div className="container">
+      <ul className="cities">
       </ul>
     </div>
   </section>
-  </form>
+  
   {/* {city?.length > 0 && <Card city={city} />} */}
-  {city?.map((city)=>{
+  {/* {city?.map((city)=>{
 
 return(
    <>
@@ -71,7 +71,12 @@ return(
    </>
 )
 
-})}
+})} */}
+{city && (
+        <>
+          <Card key={city.id} {...city} />
+        </>
+      )}
     </div>
   )
 }

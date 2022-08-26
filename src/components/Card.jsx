@@ -8,7 +8,7 @@ const Card = ({name,sys,main,weather}) => {
         
             <div class="city-temp">${Math.round(main.temp)}<sup>°C</sup></div>
             <figure>
-                <img class="city-icon" src="http://openweathermap.org/img/wn/${weather[0].icon}@2x.png"/>
+                {/* <img class="city-icon" src="http://openweathermap.org/img/wn/${weather[0].icon}@2x.png"/> */}
                 <figcaption>${weather[0].description}</figcaption>
             </figure>`; 
     </div>
