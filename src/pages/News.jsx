@@ -27,7 +27,14 @@ const News = () => {
       } catch (error) {
         
         console.log(error)
-        alert("WRONG APIKEY");
+        if(error.response.status  === 401){
+
+          alert("WRONG APIKEY");
+        }
+        if(error.response.status === 404){
+          alert("NOT FOUND")
+        }
+
       }
     } else {
       alert('Please Enter your city');
