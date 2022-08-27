@@ -20,6 +20,7 @@ export default function Login() {
     e.preventDefault();
     dispatch(setUser({ apıkey}));
     navigate('/');
+    sessionStorage.setItem("apıkey", apıkey);
   };
 
   return (

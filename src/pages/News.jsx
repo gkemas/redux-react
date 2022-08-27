@@ -10,7 +10,8 @@ const News = () => {
   const { user } = useSelector((state) => state.auth);
   let unitType ="metric";
   let lang ="tr";
-  let url =` https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${user.apıkey}&units=${unitType}&lang=${lang};`
+  var getsession = window.sessionStorage.getItem("apıkey");
+  let url =` https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${(user.apıkey)||(getsession)}&units=${unitType}&lang=${lang};`
 
 
   const handleSubmit = (e) => {
