@@ -12,14 +12,13 @@ import { setUser } from '../features/authSlice';
 import { useDispatch } from 'react-redux';
 
 export default function Login() {
-  const [apıkey, setkey] = useState('');
+  const [apıkey, setKey] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(setUser({ apıkey}));
-    setkey('');
     navigate('/');
   };
 
@@ -51,7 +50,7 @@ export default function Login() {
             name="APIKEY"           
             autoFocus
             value={apıkey}
-            onChange={(e) => setkey(e.target.value)}
+            onChange={(e) => setKey(e.target.value)}
           />
           
 

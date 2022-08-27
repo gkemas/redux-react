@@ -7,7 +7,6 @@ import Card from '../components/Card'
 const News = () => {
   const [inputVal, setinputVal] = useState('');
   const [city, setcity] = useState();
-  // let apiKeyy =localStorage.getItem("apiKey");
   const { user } = useSelector((state) => state.auth);
   let unitType ="metric";
   let lang ="tr";
@@ -26,10 +25,12 @@ const News = () => {
         const { data } = await axios.get(url);
         setcity(data);
       } catch (error) {
-        console.log(error);
+        
+        console.log(error)
+        alert("WRONG APIKEY");
       }
     } else {
-      alert('Please Enter your meal');
+      alert('Please Enter your city');
     }
   };
   return (
@@ -62,16 +63,7 @@ const News = () => {
     </div>
   </section>
   
-  {/* {city?.length > 0 && <Card city={city} />} */}
-  {/* {city?.map((city)=>{
 
-return(
-   <>
-   <Card key={city.id} {...city} />
-   </>
-)
-
-})} */}
 {city && (
         <>
           <Card key={city.id} {...city} />
