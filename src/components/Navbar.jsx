@@ -13,6 +13,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
   console.log(user);
+  var getsession = window.sessionStorage.getItem("apıkey");
 
   const handleLogout = () => {
     dispatch(clearUser());
@@ -31,7 +32,7 @@ export default function Navbar() {
           >
             WEATHERMAP
           </Typography>
-          {user ? (
+          {(user || getsession)? (
             <Button color="inherit" onClick={handleLogout}>
               Logout
             </Button>
