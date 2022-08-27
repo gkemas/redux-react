@@ -1,3 +1,7 @@
+#Apı key =7647b3f9de88bea320e585cabc38c615 <br>
+#The project receives an API key from the user as opening, and this API Key is not asked again until the browser is closed or the tab is closed, even if the page is refreshed, it is not requested again.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
